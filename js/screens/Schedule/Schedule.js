@@ -2,17 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Platform, StyleSheet, Text, View, Image } from "react-native";
 import styles from "./styles";
-const About = props => {
+function Schedule(props) {
   return (
     <View style={styles.container}>
-      <Image
-        style={{ width: 180, height: 44 }}
-        source={require("../../assets/images/r10_logo.png")}
-      />
+      <Text>Schedule Screen</Text>
     </View>
   );
-};
+}
 
-About.propTypes = {};
+Schedule.propTypes = {};
 
-export default About;
+export default Schedule;

@@ -2,17 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Platform, StyleSheet, Text, View, Image } from "react-native";
 import styles from "./styles";
-const About = props => {
+const Faves = props => {
   return (
     <View style={styles.container}>
-      <Image
-        style={{ width: 180, height: 44 }}
-        source={require("../../assets/images/r10_logo.png")}
-      />
+      <Text>View Screen</Text>
     </View>
   );
 };
 
-About.propTypes = {};
+Faves.propTypes = {};
 
-export default About;
+export default Faves;
