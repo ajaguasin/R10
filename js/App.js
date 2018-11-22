@@ -1,29 +1,18 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
-// import { ApolloProvider } from "react-apollo";
+import { ApolloProvider } from "react-apollo";
 import AppContainer from "./navigation/RootStackNavigator";
-
-import About from "./screens/About/About";
+import client from "./config/api";
+import { FavesProvider } from "./context/FavesContext";
 
 export default class App extends Component {
   render() {
     return (
-      // <View style={styles.container}>
-      //   <Text>Hi</Text>
-      // </View>
-      // <ApolloProvider client={client}>
-      <AppContainer />
-      // <About />
-      // </ApolloProvider>
+      <ApolloProvider client={client}>
+        <FavesProvider>
+          <AppContainer />
+        </FavesProvider>
+      </ApolloProvider>
     );
   }
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     backgroundColor: "#F5FCFF"
-//   }
-// });
