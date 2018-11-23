@@ -11,7 +11,11 @@ const styles = StyleSheet.create({
   },
   location: {
     ...globalStyles.globalFonts,
-    ...globalStyles.mediumGrey
+    ...globalStyles.mediumGrey,
+    flexDirection: "row"
+  },
+  fave: {
+    ...globalStyles.red
   },
   time: {
     ...globalStyles.red,
