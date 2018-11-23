@@ -7,13 +7,14 @@ import LinearGradient from "react-native-linear-gradient";
 import FavesContext from "../../context/FavesContext";
 import Ionicon from "react-native-vector-icons/Ionicons";
 const Session = props => {
+  const isFave =
+    props.faveIds.map(fave => fave.id === props.session.id).length > 0;
   return (
     <View style={styles.container}>
       <View style={styles.speaker}>
-        <View>
+        <View style={styles.top}>
           <Text style={styles.location}>{props.session.location}</Text>
-          {props.faveIds.map(fave => fave.id === props.session.id).length >
-            0 && <Ionicon name={"ios-heart"} style={styles.fave} />}
+          {isFave && <Ionicon name={"ios-heart"} style={styles.fave} />}
         </View>
         <Text style={styles.title}>{props.session.title}</Text>
         <Text style={styles.time}>
@@ -35,21 +36,24 @@ const Session = props => {
         <FavesContext.Consumer>
           {({ addFave, removeFave, allFaves, faveIds }) => (
             <React.Fragment>
-              <Button
-                style={styles.button}
-                title={false ? "Remove" : "Add"}
-                onPress={() => {
-                  faveIds.filter(fave => fave !== props.session.id).length >
-                    1 && addFave(props.session.id);
-                }}
-              />
-              <Button
-                style={styles.button}
-                title={"Show Faves"}
-                onPress={() => {
-                  console.log(allFaves());
-                }}
-              />
+              {isFave ? (
+                <Button
+                  style={styles.button}
+                  title={"Remove from Faves"}
+                  onPress={() => {
+                    removeFave(props.session.id);
+                  }}
+                />
+              ) : (
+                <Button
+                  style={styles.button}
+                  title={"Add to Faves"}
+                  onPress={() => {
+                    faveIds.filter(fave => fave !== props.session.id).length >
+                      1 && addFave(props.session.id);
+                  }}
+                />
+              )}
             </React.Fragment>
           )}
         </FavesContext.Consumer>

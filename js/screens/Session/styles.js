@@ -5,14 +5,17 @@ const styles = StyleSheet.create({
   container: {
     padding: 10
   },
+  top: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
   speaker: {
     borderBottomColor: globalStyles.lightGrey.color,
     borderBottomWidth: 1
   },
   location: {
     ...globalStyles.globalFonts,
-    ...globalStyles.mediumGrey,
-    flexDirection: "row"
+    ...globalStyles.mediumGrey
   },
   fave: {
     ...globalStyles.red
