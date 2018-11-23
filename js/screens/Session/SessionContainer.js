@@ -6,7 +6,6 @@ export default class SessionContainer extends Component {
   render(props) {
     const { navigation } = this.props;
     const session = navigation.getParam("session");
-    console.log(session);
 
     return <Session session={session} />;
   }

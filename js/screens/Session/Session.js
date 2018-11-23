@@ -4,6 +4,7 @@ import { View, Text, Image, Button } from "react-native";
 import moment from "moment";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
+import FavesContext from "../../context/FavesContext";
 
 const Session = props => {
   return (
@@ -27,13 +28,26 @@ const Session = props => {
         </View>
       </View>
       <View style={styles.buttonContainer}>
-        <Button
-          style={styles.button}
-          title={false ? "Remove" : "Add"}
-          onPress={() => {
-            console.log("hi");
-          }}
-        />
+        <FavesContext.Consumer>
+          {({ addFave, removeFave, allFaves, faveIds }) => (
+            <React.Fragment>
+              <Button
+                style={styles.button}
+                title={false ? "Remove" : "Add"}
+                onPress={() => {
+                  addFave(props.session.id);
+                }}
+              />
+              <Button
+                style={styles.button}
+                title={"Show Faves"}
+                onPress={() => {
+                  console.log(allFaves());
+                }}
+              />
+            </React.Fragment>
+          )}
+        </FavesContext.Consumer>
       </View>
     </View>
   );

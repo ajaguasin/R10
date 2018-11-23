@@ -12,8 +12,10 @@ class FavesProvider extends Component {
   addFave = id => {
     try {
       realm.write(() => {
-        realm.create("Fave", { id: id, fave_on: date });
+        let date = Date.now();
+        realm.create("Fave", { id: id, fave_on: new Date(date) });
       });
+      this.refreshStateIds();
     } catch (e) {
       console.log("Error on creation");
     }
@@ -33,8 +35,13 @@ class FavesProvider extends Component {
   };
 
   allFaves = () => {
-    let faves = realm.objects("Fave");
+    let faves = realm.objects("Fave").map(p => p);
     return faves;
+  };
+
+  refreshStateIds = () => {
+    let ids = this.allFaves();
+    this.setState({ faveIds: this.allFaves() });
   };
 
   componentDidMount() {
@@ -44,7 +51,14 @@ class FavesProvider extends Component {
 
   render() {
     return (
-      <FavesContext.Provider value={{ ...this.state }}>
+      <FavesContext.Provider
+        value={{
+          ...this.state,
+          allFaves: this.allFaves,
+          removeFave: this.removeFave,
+          addFave: this.addFave
+        }}
+      >
         {this.props.children}
       </FavesContext.Provider>
     );
