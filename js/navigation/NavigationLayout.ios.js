@@ -1,4 +1,5 @@
 import React from "react";
+import { Platform } from "react-native";
 import {
   createStackNavigator,
   createBottomTabNavigator
@@ -75,7 +76,11 @@ export default createBottomTabNavigator(
         } else if (routeName === "Map") {
           iconName = `ios-map`;
         } else if (routeName === "Faves") {
-          iconName = `ios-heart`;
+          Platform.OS === "ios"
+            ? (iconName = `ios-heart`)
+            : Platform.Version === 27
+            ? (iconName = `md-heart`)
+            : false;
         } else if (routeName === "Schedule") {
           iconName = `ios-calendar`;
         }

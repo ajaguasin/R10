@@ -1,25 +1,49 @@
 import { StyleSheet } from "react-native";
+import globalStyles from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
     padding: 10
   },
+  speaker: {
+    borderBottomColor: globalStyles.lightGrey.color,
+    borderBottomWidth: 1
+  },
   location: {
-    fontFamily: "Montserrat",
-    color: "grey"
+    ...globalStyles.globalFonts,
+    ...globalStyles.mediumGrey
   },
   time: {
-    color: "red"
+    ...globalStyles.red,
+    fontWeight: "bold"
   },
   title: {
-    fontFamily: "Montserrat",
+    ...globalStyles.globalFonts,
     fontWeight: "bold",
     fontSize: 24
   },
   description: {
-    fontFamily: "Montserrat",
-    fontSize: 16,
-    lineHeight: 5
+    ...globalStyles.globalFonts,
+    fontWeight: "100",
+    fontSize: 18,
+    lineHeight: 25
+  },
+  imageContainer: {
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  image: {
+    width: 50,
+    height: 50,
+    borderRadius: 25
+  },
+  name: {
+    ...globalStyles.globalFonts,
+
+    fontWeight: "bold"
+  },
+  button: {
+    backgroundColor: "#9963ea"
   }
 });
 

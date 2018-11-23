@@ -1,28 +1,25 @@
 import { StyleSheet } from "react-native";
+import globalStyles from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    // justifyContent: "center",
-    // alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    padding: 10
   },
   center: {
     alignItems: "center",
     borderBottomColor: "black"
   },
   title: {
+    ...globalStyles.globalFonts,
     marginTop: 10,
     marginBottom: 10,
     fontWeight: "bold",
-    fontFamily: "Montserrat",
-
     fontSize: 20
   },
   conductTitle: {
-    color: "purple",
-    fontFamily: "Montserrat",
+    ...globalStyles.globalFonts,
+    ...globalStyles.purple,
     marginTop: 10,
     marginBottom: 10
   },

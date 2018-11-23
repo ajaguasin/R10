@@ -1,24 +1,26 @@
-import { StyleSheet } from "react-native";
-
+import { Platform, StyleSheet } from "react-native";
+import globalStyles from "../../config/styles";
 const styles = StyleSheet.create({
   sectionItems: {
     padding: 10
   },
   sectionHeader: {
-    fontFamily: "Montserrat",
+    ...globalStyles.globalFonts,
     backgroundColor: "lightgrey",
     paddingLeft: 10,
     paddingTop: 5,
     paddingBottom: 5
   },
   itemTitle: {
-    fontFamily: "Montserrat",
+    ...globalStyles.globalFonts,
+
     fontSize: 14,
     fontWeight: "bold",
     paddingBottom: 5
   },
   itemLocation: {
-    fontFamily: "Montserrat",
+    ...globalStyles.globalFonts,
+
     fontSize: 14,
     color: "grey",
     paddingTop: 5

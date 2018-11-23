@@ -4,6 +4,7 @@ import Schedule from "./Schedule";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { View, Text } from "react-native";
+import Loading from "../../components/Loading";
 export default class ScheduleContainer extends Component {
   formatSessionData = sessions => {
     return sessions
@@ -45,12 +46,7 @@ export default class ScheduleContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          if (loading)
-            return (
-              <View>
-                <Text>Loading</Text>
-              </View>
-            );
+          if (loading) return <Loading />;
           if (error) return console.log(error);
           return (
             <Schedule

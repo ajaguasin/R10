@@ -3,11 +3,18 @@ import PropTypes from "prop-types";
 import About from "./About";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import client from "../../config/api";
+import Loading from "../../components/Loading";
 class AboutContainer extends Component {
   static navigationOptions = {
-    title: "About"
+    title: "About",
+    drawerLabel: "Menu",
+    drawerIcon: () => {
+      <TouchableOpacity>
+        <Ionicons name={"menu"} size={20} color={"white"} />
+      </TouchableOpacity>;
+    }
   };
   render() {
     return (
@@ -24,12 +31,7 @@ class AboutContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          if (loading)
-            return (
-              <View>
-                <Text>Loading</Text>
-              </View>
-            );
+          if (loading) return <Loading />;
           if (error) return console.log(error);
           return <About data={data} />;
         }}

@@ -6,9 +6,11 @@ import {
   Text,
   View,
   SectionList,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableHighlight
 } from "react-native";
 import styles from "./styles";
+import globalStyles from "../../config/styles";
 import moment from "moment";
 function Schedule(props) {
   return (
@@ -16,16 +18,18 @@ function Schedule(props) {
       <SectionList
         style={styles.sectionList}
         renderItem={({ item, index, section }) => (
-          <TouchableOpacity
+          <TouchableHighlight
             onPress={() => {
               props.navigation.navigate("Session", { session: item });
             }}
+            activeOpacity={0.5}
+            underlayColor={globalStyles.lightGrey.color}
           >
             <View style={styles.sectionItems} key={index}>
               <Text style={styles.itemTitle}>{item.title}</Text>
               <Text style={styles.itemLocation}>{item.location}</Text>
             </View>
-          </TouchableOpacity>
+          </TouchableHighlight>
         )}
         ItemSeparatorComponent={() => {
           return <View style={styles.itemSeparator} />;
