@@ -5,6 +5,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { View, Text } from "react-native";
 import Loading from "../../components/Loading";
+import FavesContext from "../../context/FavesContext";
 export default class ScheduleContainer extends Component {
   formatSessionData = sessions => {
     return sessions
@@ -49,10 +50,15 @@ export default class ScheduleContainer extends Component {
           if (loading) return <Loading />;
           if (error) return console.log(error);
           return (
-            <Schedule
-              data={this.formatSessionData(data.allSessions)}
-              navigation={this.props.navigation}
-            />
+            <FavesContext.Consumer>
+              {({ faveIds }) => (
+                <Schedule
+                  data={this.formatSessionData(data.allSessions)}
+                  navigation={this.props.navigation}
+                  faveIds={faveIds}
+                />
+              )}
+            </FavesContext.Consumer>
           );
         }}
       </Query>

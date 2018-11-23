@@ -9,6 +9,8 @@ import {
   TouchableOpacity,
   TouchableHighlight
 } from "react-native";
+
+import Ionicon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 import globalStyles from "../../config/styles";
 import moment from "moment";
@@ -27,7 +29,12 @@ function Schedule(props) {
           >
             <View style={styles.sectionItems} key={index}>
               <Text style={styles.itemTitle}>{item.title}</Text>
-              <Text style={styles.itemLocation}>{item.location}</Text>
+              <View style={styles.locationView}>
+                <Text style={styles.itemLocation}>{item.location}</Text>
+                {props.faveIds.find(fave => fave === item.id) && (
+                  <Ionicon name={"ios-heart"} color={globalStyles.red.color} />
+                )}
+              </View>
             </View>
           </TouchableHighlight>
         )}

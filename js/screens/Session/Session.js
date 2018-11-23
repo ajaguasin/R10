@@ -7,8 +7,7 @@ import LinearGradient from "react-native-linear-gradient";
 import FavesContext from "../../context/FavesContext";
 import Ionicon from "react-native-vector-icons/Ionicons";
 const Session = props => {
-  const isFave =
-    props.faveIds.map(fave => fave.id === props.session.id).length > 0;
+  const isFave = props.faveIds.find(fave => fave === props.session.id);
   return (
     <View style={styles.container}>
       <View style={styles.speaker}>
@@ -34,7 +33,7 @@ const Session = props => {
       </View>
       <View style={styles.buttonContainer}>
         <FavesContext.Consumer>
-          {({ addFave, removeFave, allFaves, faveIds }) => (
+          {({ addFave, removeFave }) => (
             <React.Fragment>
               {isFave ? (
                 <Button
@@ -49,8 +48,7 @@ const Session = props => {
                   style={styles.button}
                   title={"Add to Faves"}
                   onPress={() => {
-                    faveIds.filter(fave => fave !== props.session.id).length >
-                      1 && addFave(props.session.id);
+                    addFave(props.session.id);
                   }}
                 />
               )}

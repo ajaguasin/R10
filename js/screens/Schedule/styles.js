@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingBottom: 5
   },
+  locationView: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
   itemLocation: {
     ...globalStyles.globalFonts,
 
