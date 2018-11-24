@@ -10,7 +10,13 @@ export default class SessionContainer extends Component {
 
     return (
       <FavesContext.Consumer>
-        {({ faveIds }) => <Session session={session} faveIds={faveIds} />}
+        {({ faveIds }) => (
+          <Session
+            session={session}
+            faveIds={faveIds}
+            navigation={navigation}
+          />
+        )}
       </FavesContext.Consumer>
     );
   }

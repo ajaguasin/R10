@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, Button } from "react-native";
+import { View, Text, Image, Button, TouchableOpacity } from "react-native";
 import moment from "moment";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
@@ -23,8 +23,19 @@ const Session = props => {
         </Text>
         <Text style={styles.description}>{props.session.description}</Text>
         <Text style={styles.location}>Presented by:</Text>
-        <View style={styles.imageContainer}>
-          <Text style={styles.name}>{props.session.speaker.name}</Text>
+        <View>
+          <TouchableOpacity
+            style={styles.imageContainer}
+            onPress={() => {
+              props.navigation.navigate("Speaker", { speaker: props.session });
+            }}
+          >
+            <Image
+              style={styles.image}
+              source={{ uri: props.session.speaker.image }}
+            />
+            <Text style={styles.name}>{props.session.speaker.name}</Text>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.buttonContainer}>
