@@ -6,11 +6,7 @@ import {
   View,
   Dimensions
 } from "react-native";
-import {
-  createStackNavigator,
-  createBottomTabNavigator,
-  createDrawerNavigator
-} from "react-navigation";
+import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import AboutScreen from "../screens/About";
 import FavesScreen from "../screens/Faves";
 import ScheduleScreen from "../screens/Schedule";

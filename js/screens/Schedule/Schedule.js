@@ -14,9 +14,10 @@ import Ionicon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 import globalStyles from "../../config/styles";
 import moment from "moment";
-function Schedule(props) {
+const Schedule = props => {
   return (
     <View style={styles.container}>
+      {console.log(props.faveIds)}
       <SectionList
         style={styles.sectionList}
         renderItem={({ item, index, section }) => (
@@ -51,7 +52,7 @@ function Schedule(props) {
       />
     </View>
   );
-}
+};
 
 Schedule.propTypes = {};
 

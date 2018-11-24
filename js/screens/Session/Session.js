@@ -24,10 +24,6 @@ const Session = props => {
         <Text style={styles.description}>{props.session.description}</Text>
         <Text style={styles.location}>Presented by:</Text>
         <View style={styles.imageContainer}>
-          <Image
-            style={styles.image}
-            source={{ uri: props.session.speaker.image }}
-          />
           <Text style={styles.name}>{props.session.speaker.name}</Text>
         </View>
       </View>
