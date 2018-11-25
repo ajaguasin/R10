@@ -7,7 +7,8 @@ import {
   Button,
   TouchableOpacity,
   Modal,
-  TouchableHighlight
+  TouchableHighlight,
+  ScrollView
 } from "react-native";
 import moment from "moment";
 import styles from "./styles";
@@ -27,7 +28,7 @@ class Session extends Component {
       fave => fave === this.props.session.id
     );
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.speaker}>
           <View style={styles.top}>
             <Text style={styles.location}>{this.props.session.location}</Text>
@@ -63,21 +64,37 @@ class Session extends Component {
             {({ addFave, removeFave }) => (
               <React.Fragment>
                 {isFave ? (
-                  <Button
-                    style={styles.button}
-                    title={"Remove from Faves"}
-                    onPress={() => {
-                      removeFave(this.props.session.id);
-                    }}
-                  />
+                  <LinearGradient
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                    colors={["#8797D6", "#9963ea"]}
+                    style={styles.linearGradient}
+                  >
+                    <TouchableOpacity
+                      style={styles.button}
+                      onPress={() => {
+                        removeFave(this.props.session.id);
+                      }}
+                    >
+                      <Text style={styles.buttonText}>Remove from Faves</Text>
+                    </TouchableOpacity>
+                  </LinearGradient>
                 ) : (
-                  <Button
-                    style={styles.button}
-                    title={"Add to Faves"}
-                    onPress={() => {
-                      addFave(this.props.session.id);
-                    }}
-                  />
+                  <LinearGradient
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                    colors={["#8797D6", "#9963ea"]}
+                    style={styles.linearGradient}
+                  >
+                    <TouchableOpacity
+                      style={styles.button}
+                      onPress={() => {
+                        addFave(this.props.session.id);
+                      }}
+                    >
+                      <Text style={styles.buttonText}> Add to Faves</Text>
+                    </TouchableOpacity>
+                  </LinearGradient>
                 )}
               </React.Fragment>
             )}
@@ -112,7 +129,7 @@ class Session extends Component {
             />
           </View>
         </Modal>
-      </View>
+      </ScrollView>
     );
   }
 }

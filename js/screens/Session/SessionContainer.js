@@ -4,6 +4,9 @@ import Session from "./Session";
 import FavesContext from "../../context/FavesContext";
 
 export default class SessionContainer extends Component {
+  static navigationOptions = {
+    title: "Session"
+  };
   render(props) {
     const { navigation } = this.props;
     const session = navigation.getParam("session");

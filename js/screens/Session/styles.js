@@ -15,34 +15,42 @@ const styles = StyleSheet.create({
   },
   location: {
     ...globalStyles.globalFonts,
-    ...globalStyles.mediumGrey
+    ...globalStyles.mediumGrey,
+    paddingTop: 10
   },
   fave: {
-    ...globalStyles.red
+    ...globalStyles.red,
+    paddingTop: 10
   },
   time: {
     ...globalStyles.red,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    paddingTop: 10
   },
   title: {
     ...globalStyles.globalFonts,
     fontWeight: "bold",
-    fontSize: 24
+    fontSize: 24,
+    paddingTop: 10
   },
   description: {
     ...globalStyles.globalFonts,
     fontWeight: "100",
     fontSize: 18,
-    lineHeight: 25
+    lineHeight: 25,
+    paddingTop: 10
   },
   imageContainer: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    paddingTop: 20,
+    paddingBottom: 20
   },
   image: {
     width: 50,
     height: 50,
-    borderRadius: 25
+    borderRadius: 25,
+    paddingTop: 10
   },
   name: {
     ...globalStyles.globalFonts,
@@ -50,7 +58,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   button: {
-    backgroundColor: "#9963ea"
+    backgroundColor: "transparent",
+    padding: 12
+  },
+  buttonText: {
+    ...globalStyles.globalFonts,
+    textAlign: "center",
+    color: "white",
+    fontWeight: "bold",
+    backgroundColor: "transparent"
   },
   modalContainer: {
     backgroundColor: "black",
@@ -75,6 +91,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     position: "absolute",
     left: 0
+  },
+  linearGradient: {
+    borderRadius: 20,
+    marginTop: 10,
+    alignSelf: "center"
   }
 });
 
