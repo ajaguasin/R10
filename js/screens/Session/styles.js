@@ -51,6 +51,30 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#9963ea"
+  },
+  modalContainer: {
+    backgroundColor: "black",
+    flex: 1,
+    padding: 10
+  },
+  modalHeader: {
+    flexDirection: "row",
+    padding: 10,
+    marginTop: 20,
+    marginBottom: 20,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  modalHeaderText: {
+    ...globalStyles.globalFonts,
+    color: "white",
+    fontWeight: "bold",
+    alignSelf: "center"
+  },
+  modalIcon: {
+    fontSize: 24,
+    position: "absolute",
+    left: 0
   }
 });
 

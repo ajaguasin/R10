@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   globalFonts: {
     ...Platform.select({
       ios: {
-        fontFamily: "Montserrat"
+        fontFamily: "Montserrat-Light"
       },
       android: {
         fontFamily: "Montserrat-Regular"

@@ -89,16 +89,23 @@ class Session extends Component {
           visible={this.state.isVisible}
           onRequestClose={() => {}}
         >
-          <View style={{ backgroundColor: "black", flex: 1 }}>
-            <TouchableHighlight
-              onPress={() => {
-                this.setState({ isVisible: !this.state.isVisible });
-              }}
-              style={{ flexDirection: "row" }}
-            >
-              <Text>About the Speaker</Text>
-            </TouchableHighlight>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <TouchableHighlight
+                onPress={() => {
+                  this.setState({ isVisible: !this.state.isVisible });
+                }}
+              >
+                <Ionicon
+                  style={styles.modalIcon}
+                  color="white"
+                  name="ios-close"
+                />
+              </TouchableHighlight>
+              <Text style={styles.modalHeaderText}>About the Speaker</Text>
+            </View>
             <SpeakerModalContent
+              name={this.props.session.speaker.name}
               img={this.props.session.speaker.image}
               bio={this.props.session.speaker.bio}
               url={this.props.session.speaker.url}
