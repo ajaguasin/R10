@@ -105,7 +105,7 @@ class Session extends Component {
           visible={this.state.isVisible}
           onRequestClose={() => {}}
         >
-          <View style={styles.modalContainer}>
+          <ScrollView style={styles.modalContainer}>
             <View style={styles.modalHeader}>
               <TouchableHighlight
                 onPress={() => {
@@ -126,7 +126,7 @@ class Session extends Component {
               bio={this.props.session.speaker.bio}
               url={this.props.session.speaker.url}
             />
-          </View>
+          </ScrollView>
         </Modal>
       </ScrollView>
     );

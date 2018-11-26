@@ -13,7 +13,7 @@ const Schedule = props => {
         renderItem={({ item, index, section }) => (
           <TouchableHighlight
             onPress={e => {
-              item.title !== "Lunch" &&
+              if (item.title !== "Lunch" && item.title !== "After Party")
                 props.navigation.navigate("Session", { session: item });
             }}
             activeOpacity={0.5}
