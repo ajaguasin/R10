@@ -77,11 +77,7 @@ export default createBottomTabNavigator(
         } else if (routeName === "Map") {
           iconName = `ios-map`;
         } else if (routeName === "Faves") {
-          Platform.OS === "ios"
-            ? (iconName = `ios-heart`)
-            : Platform.Version === 27
-            ? (iconName = `md-heart`)
-            : false;
+          iconName = `ios-heart`;
         } else if (routeName === "Schedule") {
           iconName = `ios-calendar`;
         }
