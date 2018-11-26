@@ -9,9 +9,9 @@ class FavesProvider extends Component {
     };
   }
 
-  addFave = id => {
+  addFave = async id => {
     try {
-      realm.write(() => {
+      await realm.write(() => {
         let date = Date.now();
         realm.create("Fave", { id: id, fave_on: new Date(date) });
         this.refreshStateIds();
@@ -21,9 +21,9 @@ class FavesProvider extends Component {
     }
   };
 
-  removeFave = id => {
+  removeFave = async id => {
     try {
-      realm.write(() => {
+      await realm.write(() => {
         realm.delete(realm.objectForPrimaryKey("Fave", id));
         this.refreshStateIds();
       });
