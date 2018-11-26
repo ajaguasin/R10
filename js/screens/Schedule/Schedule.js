@@ -12,8 +12,9 @@ const Schedule = props => {
         style={styles.sectionList}
         renderItem={({ item, index, section }) => (
           <TouchableHighlight
-            onPress={() => {
-              props.navigation.navigate("Session", { session: item });
+            onPress={e => {
+              item.title !== "Lunch" &&
+                props.navigation.navigate("Session", { session: item });
             }}
             activeOpacity={0.5}
             underlayColor={globalStyles.lightGrey.color}

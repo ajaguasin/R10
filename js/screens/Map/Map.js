@@ -1,16 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { View, Text } from "react-native";
 import styles from "./styles";
 
-function Map(props) {
+const Map = () => {
   return (
     <View style={styles.container}>
-      <Text>Map Screen</Text>
+      <Text style={styles.address}>
+        1490 W Broadway #200, Vancouver, BC V6H 4E8
+      </Text>
     </View>
   );
-}
-
-Map.propTypes = {};
+};
 
 export default Map;

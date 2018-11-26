@@ -9,10 +9,6 @@ class About extends Component {
     this.state = { ...this.constructToggle() };
   }
 
-  // componentDidMount() {
-  //   this.setState({ ...this.constructToggle() });
-  // }
-
   constructToggle = () => {
     let keys = this.props.data.allConducts.map((item, index) => item.order);
     let obj = {};
@@ -23,7 +19,6 @@ class About extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <ScrollView style={styles.container}>
         <View style={styles.center}>

@@ -13,7 +13,6 @@ import globalStyles from "../config/styles";
 const SpeakerModalContent = props => {
   return (
     <View style={styles.content}>
-      {console.log(props)}
       <Image
         style={{ height: 100, width: 100, borderRadius: 50 }}
         source={{ uri: props.img }}
