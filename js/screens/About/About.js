@@ -6,37 +6,24 @@ import styles from "./styles";
 class About extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      opacity: new Animated.Value(1),
-      rotation: new Animated.Value(0)
-    };
+    this.state = { ...this.constructToggle() };
   }
 
-  startAnimation = () => {
-    Animated.parallel([
-      Animated.timing(this.state.opacity, {
-        toValue: 0,
-        duration: 5000,
-        easing: Easing.elastic(0.4)
-      }),
-      Animated.timing(this.state.rotation, {
-        toValue: 1,
-        duration: 5000,
-        easing: Easing.elastic(0.4)
-      })
-    ]).start(() => {
-      // this.setState({
-      //   opacity: new Animated.Value(0),
-      //   rotation: new Animated.Value(0)
-      // });
-    });
+  // componentDidMount() {
+  //   this.setState({ ...this.constructToggle() });
+  // }
+
+  constructToggle = () => {
+    let keys = this.props.data.allConducts.map((item, index) => item.order);
+    let obj = {};
+    for (let i = 0; i < keys.length; i++) {
+      obj[keys[i]] = false;
+    }
+    return obj;
   };
 
   render() {
-    const spin = this.state.rotation.interpolate({
-      inputRange: [0, 1],
-      outputRange: ["0deg", "360deg"]
-    });
+    console.log(this.state);
     return (
       <ScrollView style={styles.container}>
         <View style={styles.center}>
@@ -57,28 +44,32 @@ class About extends Component {
         <Text style={styles.title}>Code of Conduct</Text>
 
         {this.props.data.allConducts.map((item, index) => {
+          let key = item.order;
+
+          let iconName = "";
+          this.state[key] ? (iconName = "ios-remove") : (iconName = "ios-add");
           return (
             <View key={index}>
               <View style={styles.titleRow}>
-                <Animated.View
-                  style={{
-                    positition: "fixed",
-                    opacity: this.state.opacity,
-                    transform: [{ rotate: spin }]
+                <Ionicon
+                  style={styles.addIcon}
+                  name={iconName}
+                  onPress={() => {
+                    this.state[key]
+                      ? this.setState({ [key]: false })
+                      : this.setState({
+                          [key]: !this.state.key
+                        });
                   }}
-                >
-                  <Ionicon
-                    style={styles.addIcon}
-                    name={"ios-add"}
-                    onPress={event => {
-                      this.startAnimation();
-                      console.log(event);
-                    }}
-                  />
-                </Animated.View>
+                />
                 <Text style={styles.conductTitle}>{item.title}</Text>
               </View>
-              <Text style={styles.conductDescription}>{item.description}</Text>
+
+              {this.state[item.order] && (
+                <Text key={item.order} style={styles.conductDescription}>
+                  {item.description}
+                </Text>
+              )}
             </View>
           );
         })}

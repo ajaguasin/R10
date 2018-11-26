@@ -8,7 +8,6 @@ import { faveIdsType, navigationType, allSessionType } from "../../lib/types";
 const Schedule = props => {
   return (
     <View style={styles.container}>
-      {console.log(props)}
       <SectionList
         style={styles.sectionList}
         renderItem={({ item, index, section }) => (

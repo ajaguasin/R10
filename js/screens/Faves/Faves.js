@@ -18,7 +18,6 @@ import { allSessionType, faveIdsType } from "../../lib/types";
 const Faves = props => {
   return (
     <View style={styles.container}>
-      {console.log(props)}
       <SectionList
         style={styles.sectionList}
         renderItem={({ item, index, section }) => (

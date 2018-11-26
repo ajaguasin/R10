@@ -23,7 +23,6 @@ class Session extends Component {
     };
   }
   render() {
-    console.log(this.props);
     const isFave = this.props.faveIds.find(
       fave => fave === this.props.session.id
     );

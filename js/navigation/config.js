@@ -21,7 +21,8 @@ export const sharedNavigationOptions = navigation => ({
   header: props => <GradientHeader {...props} />,
   headerStyle: {
     backgroundColor: "transparent",
-    fontFamily: "Montserrat"
+    fontFamily: "Montserrat",
+    color: "white"
   },
   headerLeft: () =>
     Platform.Version === 27 && (
