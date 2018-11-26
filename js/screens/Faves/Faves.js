@@ -13,10 +13,12 @@ import globalStyles from "../../config/styles";
 import moment from "moment";
 import styles from "../Schedule/styles";
 import Ionicon from "react-native-vector-icons/Ionicons";
+import { allSessionType, faveIdsType } from "../../lib/types";
 
 const Faves = props => {
   return (
     <View style={styles.container}>
+      {console.log(props)}
       <SectionList
         style={styles.sectionList}
         renderItem={({ item, index, section }) => (
@@ -46,13 +48,16 @@ const Faves = props => {
             {moment(section.title).format("h:mm a")}
           </Text>
         )}
-        sections={props.favorites}
+        sections={props.data}
         keyExtractor={(item, index) => item + index}
       />
     </View>
   );
 };
 
-Faves.propTypes = {};
+Faves.propTypes = {
+  data: allSessionType.isRequired,
+  faveIds: faveIdsType.isRequired
+};
 
 export default Faves;

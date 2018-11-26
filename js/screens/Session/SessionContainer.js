@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Session from "./Session";
 import FavesContext from "../../context/FavesContext";
+import { navigationType } from "../../lib/types";
+import FavesContainer from "../Faves/FavesContainer";
 
 export default class SessionContainer extends Component {
   static navigationOptions = {
     title: "Session"
   };
-  render(props) {
+  render() {
     const { navigation } = this.props;
     const session = navigation.getParam("session");
 
@@ -24,3 +25,7 @@ export default class SessionContainer extends Component {
     );
   }
 }
+
+FavesContainer.propTypes = {
+  navigation: navigationType.isRequired
+};

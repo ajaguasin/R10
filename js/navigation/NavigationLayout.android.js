@@ -55,7 +55,6 @@ const MapStack = createStackNavigator(
   }
 );
 
-// Dedicated stacks for Schedule and Faves will go here too!
 export default createDrawerNavigator(
   {
     Schedule: ScheduleStack,

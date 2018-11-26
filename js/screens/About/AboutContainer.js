@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import About from "./About";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { View, Text, TouchableOpacity } from "react-native";
-import client from "../../config/api";
+import { TouchableOpacity } from "react-native";
 import Loading from "../../components/Loading";
+import { navigationType } from "../../lib/types";
 class AboutContainer extends Component {
   static navigationOptions = {
     title: "About",
@@ -39,5 +39,9 @@ class AboutContainer extends Component {
     );
   }
 }
+
+AboutContainer.propType = {
+  navigation: navigationType.isRequired
+};
 
 export default AboutContainer;

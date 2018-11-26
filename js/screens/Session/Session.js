@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import {
   View,
   Text,
   Image,
-  Button,
   TouchableOpacity,
   Modal,
   TouchableHighlight,
@@ -16,6 +14,7 @@ import LinearGradient from "react-native-linear-gradient";
 import FavesContext from "../../context/FavesContext";
 import Ionicon from "react-native-vector-icons/Ionicons";
 import SpeakerModalContent from "../../components/SpeakerModalContent";
+import { sessionType, navigationType, faveIdsType } from "../../lib/types";
 class Session extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +23,7 @@ class Session extends Component {
     };
   }
   render() {
+    console.log(this.props);
     const isFave = this.props.faveIds.find(
       fave => fave === this.props.session.id
     );
@@ -134,6 +134,10 @@ class Session extends Component {
   }
 }
 
-Session.propTypes = {};
+Session.propTypes = {
+  session: sessionType.isRequired,
+  navigation: navigationType.isRequired,
+  faveIds: faveIdsType.isRequired
+};
 
 export default Session;

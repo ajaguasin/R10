@@ -1,23 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  SectionList,
-  TouchableOpacity,
-  TouchableHighlight
-} from "react-native";
-
+import { Text, View, SectionList, TouchableHighlight } from "react-native";
 import Ionicon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 import globalStyles from "../../config/styles";
 import moment from "moment";
+import { faveIdsType, navigationType, allSessionType } from "../../lib/types";
 const Schedule = props => {
   return (
     <View style={styles.container}>
-      {console.log(props.faveIds)}
+      {console.log(props)}
       <SectionList
         style={styles.sectionList}
         renderItem={({ item, index, section }) => (
@@ -54,6 +45,10 @@ const Schedule = props => {
   );
 };
 
-Schedule.propTypes = {};
+Schedule.propTypes = {
+  navigation: navigationType.isRequired,
+  faveIds: faveIdsType.isRequired,
+  data: allSessionType.isRequired
+};
 
 export default Schedule;

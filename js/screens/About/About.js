@@ -1,15 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import {
-  Platform,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  Animated,
-  Easing
-} from "react-native";
-import globalStyles from "../../config/styles";
+import { Text, View, Image, ScrollView, Animated, Easing } from "react-native";
+import { allConductsType } from "../../lib/types";
 import Ionicon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 class About extends Component {
@@ -96,6 +87,8 @@ class About extends Component {
   }
 }
 
-About.propTypes = {};
+About.propTypes = {
+  data: allConductsType.isRequired
+};
 
 export default About;
