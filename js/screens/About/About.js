@@ -38,6 +38,7 @@ class About extends Component {
             />
           );
         })}
+        <Text>&copy; RED Academy 2017</Text>
       </ScrollView>
     );
   }

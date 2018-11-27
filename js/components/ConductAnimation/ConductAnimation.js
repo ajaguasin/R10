@@ -65,10 +65,6 @@ export default class ConductAnimation extends Component {
           <Text style={styles.conductTitle}>{this.props.conductTitle}</Text>
         </View>
         <Animated.View
-          onLayout={event => {
-            let height = event.nativeEvent.layout;
-            console.log(height);
-          }}
           style={{ opacity: this.state.opacity, height: this.state.height }}
         >
           <Text>{this.props.conductDesc}</Text>

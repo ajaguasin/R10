@@ -44,7 +44,6 @@ class Session extends Component {
             <TouchableOpacity
               style={styles.imageContainer}
               onPress={() => {
-                console.log(this.props.session.speaker);
                 this.props.navigation.navigate("Speaker", {
                   speaker: this.props.session.speaker
                 });
