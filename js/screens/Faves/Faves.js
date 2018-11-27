@@ -1,14 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  SectionList,
-  TouchableHighlight
-} from "react-native";
+import { Text, View, SectionList, TouchableHighlight } from "react-native";
 import globalStyles from "../../config/styles";
 import moment from "moment";
 import styles from "../Schedule/styles";

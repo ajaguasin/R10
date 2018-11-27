@@ -4,7 +4,7 @@ import About from "./About";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { TouchableOpacity } from "react-native";
-import Loading from "../../components/Loading";
+import Loading from "../../components/Loading/Loading";
 import { navigationType } from "../../lib/types";
 class AboutContainer extends Component {
   static navigationOptions = {

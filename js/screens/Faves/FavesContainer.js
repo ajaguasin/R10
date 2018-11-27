@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import FavesContext from "../../context/FavesContext";
 import { navigationType } from "../../lib/types";
 import { formatSessionData } from "../../lib/helpers";
+import Loading from "../../components/Loading/Loading";
 
 const query = gql`
   query filterSessions($filter: SessionFilter) {
