@@ -18,9 +18,6 @@ import { sessionType, navigationType, faveIdsType } from "../../lib/types";
 class Session extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isVisible: false
-    };
   }
   render() {
     const isFave = this.props.faveIds.find(
@@ -47,7 +44,10 @@ class Session extends Component {
             <TouchableOpacity
               style={styles.imageContainer}
               onPress={() => {
-                this.setState({ isVisible: !this.state.isVisible });
+                console.log(this.props.session.speaker);
+                this.props.navigation.navigate("Speaker", {
+                  speaker: this.props.session.speaker
+                });
               }}
             >
               <Image
@@ -99,35 +99,6 @@ class Session extends Component {
             )}
           </FavesContext.Consumer>
         </View>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.isVisible}
-          onRequestClose={() => {}}
-        >
-          <ScrollView style={styles.modalContainer}>
-            <View style={styles.modalHeader}>
-              <TouchableHighlight
-                onPress={() => {
-                  this.setState({ isVisible: !this.state.isVisible });
-                }}
-              >
-                <Ionicon
-                  style={styles.modalIcon}
-                  color="white"
-                  name="ios-close"
-                />
-              </TouchableHighlight>
-              <Text style={styles.modalHeaderText}>About the Speaker</Text>
-            </View>
-            <SpeakerModalContent
-              name={this.props.session.speaker.name}
-              img={this.props.session.speaker.image}
-              bio={this.props.session.speaker.bio}
-              url={this.props.session.speaker.url}
-            />
-          </ScrollView>
-        </Modal>
       </ScrollView>
     );
   }

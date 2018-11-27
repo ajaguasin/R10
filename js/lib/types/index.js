@@ -21,6 +21,14 @@ export const sessionType = PropTypes.shape({
   title: PropTypes.string.isRequired
 });
 
+export const speakerType = PropTypes.shape({
+  bio: PropTypes.string,
+  id: PropTypes.string,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  url: PropTypes.string
+});
+
 export const allConductsType = PropTypes.shape({
   allConducts: PropTypes.arrayOf(
     PropTypes.shape({
