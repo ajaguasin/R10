@@ -7,7 +7,7 @@ export const faveIdsType = PropTypes.arrayOf(PropTypes.string.isRequired);
 export const allSessionType = PropTypes.array;
 
 export const sessionType = PropTypes.shape({
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   id: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   speaker: PropTypes.shape({
@@ -22,11 +22,11 @@ export const sessionType = PropTypes.shape({
 });
 
 export const speakerType = PropTypes.shape({
-  bio: PropTypes.string,
-  id: PropTypes.string,
-  image: PropTypes.string,
-  name: PropTypes.string,
-  url: PropTypes.string
+  bio: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 });
 
 export const allConductsType = PropTypes.shape({

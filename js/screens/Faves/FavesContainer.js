@@ -11,6 +11,7 @@ const query = gql`
   query filterSessions($filter: SessionFilter) {
     allSessions(filter: $filter) {
       id
+      description
       location
       speaker {
         bio

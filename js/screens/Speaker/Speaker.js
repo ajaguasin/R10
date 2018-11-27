@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import Ionicon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
-import SpeakerModalContent from "../../components/SpeakerModalContent";
+import SpeakerModalContent from "../../components/SpeakerModalContent/SpeakerModalContent";
 import { navigationType, speakerType } from "../../lib/types";
 const Speaker = props => {
   return (

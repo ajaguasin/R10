@@ -9,7 +9,7 @@ import {
   Linking
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import globalStyles from "../config/styles";
+import globalStyles from "../../config/styles";
 const SpeakerModalContent = props => {
   return (
     <View style={styles.content}>
