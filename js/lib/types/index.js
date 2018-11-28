@@ -7,7 +7,7 @@ export const faveIdsType = PropTypes.arrayOf(PropTypes.string.isRequired);
 export const allSessionType = PropTypes.array;
 
 export const sessionType = PropTypes.shape({
-  description: PropTypes.string,
+  description: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   speaker: PropTypes.shape({
